@@ -26,3 +26,16 @@ Udemy Python A-Z: Python for Data Science (2023)
 
 ## Dipping toes into BigQuerry (Google)
 **Exploring Public Data Sets**
+- This was the dataset and table I explored --> bigquery-public-data.london_bicycles.cycle_hire` <-- this is a dataset for bike rental in London
+- Was curious to see how many times were bikes rented overall per year using this code. So i decided to write my own querry
+---
+SELECT 
+  EXTRACT(year FROM end_date) as Year,
+  FORMAT("%'d",count(rental_id)) as Total_Number_Rents
+
+FROM `bigquery-public-data.london_bicycles.cycle_hire` 
+
+GROUP BY Year
+ORDER BY Year 
+
+![1st Independednt querry in BigQuerry](/assets/img/BigQuerry_London Bicycles_1.png)
