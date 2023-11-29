@@ -30,8 +30,9 @@
 
 ## Dipping toes into BigQuerry (Google)
 **Exploring Public Data Sets**
-Following the Google certificate path we were working on the dataset for bicycles rental in London I was curious to see how many times were bikes rented overall for each year.  
- - This is the code I have produced on my own initiative
+Following the Google certificate path we were working on the dataset for bicycles rental in London I was curious to see how many times were bikes rented overall for each year.
+
+- This is the code I have produced on my own initiative
 ```SQL
 SELECT  
   EXTRACT(year FROM end_date) as Year,
@@ -46,6 +47,7 @@ ORDER BY Year;
 Interestingly we can see that 2021 and 2022 were the years with most number of rentals. Why is that ? My assumption is either the amount of bikes that could be rented was increased to meet the demand, or because of COVID people got into a habbit of cycling and maintained it. 
 
 - Checking if the number of bikes increased
+  
 ```SQL
 SELECT  
   EXTRACT(year FROM end_date) as Year,
