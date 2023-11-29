@@ -14,8 +14,10 @@
 
 ### Work Experience
 **Account Manager @ RTB House (August 2021 - August 2023)**
-- Optimized ROI of Digital Campaigns through data analysis | Impact: Scaled campaigns by 2x-6x
-- Created business reports using multiple data sources | Impact: Many insights were actioned and resulted in bigger budgets from clients
+- Optimized ROI of Digital Campaigns through data analysis
+  - Result: Scaled campaigns by 2x-6x
+- Created business reports using multiple data sources
+  - Result: Many insights were actioned and resulted in bigger budgets from clients
   
 
 **Senior Media Planner @Dentsu (August 2017 - March 2021)**
@@ -28,9 +30,8 @@
 
 ## Dipping toes into BigQuerry (Google)
 **Exploring Public Data Sets**
-- Following the Google certificate path we were working on the dataset for bicycles rental in London --> bigquery-public-data.london_bicycles.cycle_hire
-  I was curious to see how many times were bikes rented overall for each year.  
- - This is the code I have produced 
+Following the Google certificate path we were working on the dataset for bicycles rental in London I was curious to see how many times were bikes rented overall for each year.  
+ - This is the code I have produced on my own initiative
 ```SQL
 SELECT 
   EXTRACT(year FROM end_date) as Year,
