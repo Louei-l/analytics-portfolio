@@ -64,3 +64,5 @@ ORDER BY Year;
 ```
 
 ![2nd Independednt querry in BigQuerry](/assets/img/BigQuerry_London Bicycles_2.PNG)
+
+We can see that there was a significant spike in overal number of bikes in 2022. We can also see that in 2020 and 2021 there was an increase in bikes. 
