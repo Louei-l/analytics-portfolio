@@ -7,9 +7,9 @@
 - B.S. Finance & Marketing | Al Akhawayn University (2014)
 
 ### Additional Education
-Google Data Analyst Professional Certificate (2023)
-Udemy Business Intelligence Analyst 2023 (2023)
-Udemy Python A-Z: Python for Data Science (2023)
+- Google Data Analyst Professional Certificate (2023)
+- Udemy Business Intelligence Analyst 2023 (2023)
+- Udemy Python A-Z: Python for Data Science (2023)
 
 ### Work Experience
 **Account Manager @ RTB House (August 2021 - August 2023)**
