@@ -38,4 +38,4 @@ FROM `bigquery-public-data.london_bicycles.cycle_hire`
 GROUP BY Year
 ORDER BY Year 
 
-![1st Independednt querry in BigQuerry](/assets/img/BigQuerry_London Bicycles_1.png)
+![1st Independednt querry in BigQuerry](/assets/img/BigQuerry_London Bicycles_1.PNG)
