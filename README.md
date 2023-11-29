@@ -1,6 +1,6 @@
 # Learning Analytics Portfolio Journey
 
-#### Technical Skills: Python, SQL, Excel, Tableau, 
+#### Technical Skills: Python, SQL, Excel, Tableau
 
 ### Formal Education
 - M.S. International Business @ Wollongong University Dubai (2016)
