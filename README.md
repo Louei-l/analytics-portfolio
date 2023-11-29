@@ -1,22 +1,28 @@
 # Learning Analytics Portfolio Journey
 
+#### Technical Skills: Python, SQL, Excel, Tableau, 
+
 ### Formal Education
-Ms in International Business
-Bs in Finance and Marketing
+- M.S. International Business | Wollongong University Dubai (2016)
+- B.S. Finance & Marketing | Al Akhawayn University (2014)
 
 ### Additional Education
-Google Data Analyst Professional Certificate
-Udemy Business Intelligence Analyst 2023
-Udemy Python A-Z: Python for Data Science
+Google Data Analyst Professional Certificate (2023)
+Udemy Business Intelligence Analyst 2023 (2023)
+Udemy Python A-Z: Python for Data Science (2023)
 
 ### Work Experience
-Account Manager @ RTB House
-- Optimized ROI of Digital Campaigns through data driven decision making
-  - Impact: Scaled campaigns
-- Created business reports for clients using multiple data sources to analyze their sales and impact of our digital campaigns
- - Impact: Insights provided in the reports were actioned and resulted in bigger budgets from client
+**Account Manager @ RTB House (August 2021 - August 2023)**
+- Optimized ROI of Digital Campaigns through data analysis | Impact: Scaled campaigns by 2x-6x
+- Created business reports using multiple data sources | Impact: Many insights were actioned and resulted in bigger budgets from clients
 
-Senior Media Planner @Dentsu
-- Created Media Industry Analysis using multiple 3rd Party Sources
-- Created Excel Dashboard for e-com client
-- Created campaign reports with analysis and recommendations
+**Senior Media Planner @Dentsu (August 2017 - March 2021)
+- Created Media Industry Analysis using multiple 3rd Party Sources | Impact: Insight were used for strategic decks and pitches
+- Created Excel Dashboard for e-com client | Impact: better relationship with client which led to bigger investments
+- Created campaign reports with analysis and recommendations | Impact: Multiple recommendations led to higher ROI 10%+30%
+
+
+# Data Journey Starts Here 
+
+## Dipping toes into BigQuerry (Google)
+**Exploring Public Data Sets**
