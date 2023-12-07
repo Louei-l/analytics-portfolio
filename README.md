@@ -66,3 +66,40 @@ ORDER BY Year;
 ![2nd Independednt querry in BigQuerry](/assets/img/BigQuerry_London Bicycles_2.PNG)
 
 We can see that there was a significant spike in overal number of bikes in 2022. We can also see that in 2020 and 2021 there was an increase in bikes. 
+
+## Data Cleaning
+**Picked up some new tricks**
+
+I am no stranger to data cleaning process since working in the digital advertising industry gave me a lot of exposure on this matter. However I am excited to learn SQL functions that can save a ton of time if you were doing same thing on excel. 
+
+For instance converting timestamps into date format was a legthy process on excel, where I had to extract characters as string and then concatinate them into a date format. 
+However in SQL all you have to do is use the CAST() function to convert the data from one format to another, amazing ! 
+
+Here we can see that when I try to pull out data, it is in the form of timestamp and not date format. So if I wanted to plot this on a chart it will not appear as dates, and we dont want that.
+![Cast function example](/assets/img/timestamp.PNG)
+
+So now if we use the CAST() function and we convert the data format into date the issue is solved ! 
+
+![Cast function example2](/assets/img/date.PNG)
+
+```SQL
+SELECT  
+  CAST(date as date) as normal_date, 
+  transaction_id
+  
+FROM `polished-will-406507.furniture_customer_data.furniture` 
+
+ORDER BY date DESC 
+;
+```
+
+There several other usefull functions that are great to use to double check on data cleanliness 
+-TRIM to remove blanc spaces
+-COALESE to substitute data with another set incase Null values appear
+-CONCAT function to form a new combined string, from several ones, as a new unique ID, 
+-SELECT DISTICT to remove duplicates in the output
+-LENGTH to check number of characters in a string, usefull when you know the exact length the string needs be i.e. country codes, or postal codes.
+
+I wish I knew SQL when I was back in media agency crunching numbers for reports, it would have saved me a ton of time. 
+
+
