@@ -93,12 +93,12 @@ ORDER BY date DESC
 ;
 ```
 
-There several other usefull functions that are great to use to double check on data cleanliness 
--TRIM to remove blanc spaces
--COALESE to substitute data with another set incase Null values appear
--CONCAT function to form a new combined string, from several ones, as a new unique ID, 
--SELECT DISTICT to remove duplicates in the output
--LENGTH to check number of characters in a string, usefull when you know the exact length the string needs be i.e. country codes, or postal codes.
+There are several other usefull functions that are great to use to double check on data cleanliness 
+- TRIM to remove blanc spaces
+- COALESE to substitute data with another set incase Null values appear
+- CONCAT function to form a new combined string, from several ones, as a new unique ID, 
+- SELECT DISTICT to remove duplicates in the output
+- LENGTH to check number of characters in a string, usefull when you know the exact length the string needs be i.e. country codes, or postal codes.
 
 I wish I knew SQL when I was back in media agency crunching numbers for reports, it would have saved me a ton of time. 
 
