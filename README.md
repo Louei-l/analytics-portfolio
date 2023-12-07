@@ -105,5 +105,6 @@ I wish I knew SQL when I was back in media agency crunching numbers for reports,
 Also crucial step is to triple check if all data was cleaned once you are done to be 100% there are no mistakes. 
 Verify the cleaned data by comparing it to the unclean raw data, by randomly picking unclean entries and comparind it with the clean data set (i.e. one of the columns had a lot of null values, now compare the same to the cleaned data set). 
 Also document the cleaning process and steps taken for other teammebers to quickly see what was done.
+Once everythig is cleaned and documented, review the problem/objective and confirm whether cleaned data is suitable for the objective.
 
 
