@@ -107,4 +107,14 @@ Verify the cleaned data by comparing it to the unclean raw data, by randomly pic
 Also document the cleaning process and steps taken for other teammebers to quickly see what was done.
 Once everythig is cleaned and documented, review the problem/objective and confirm whether cleaned data is suitable for the objective.
 
+## Google Professional Data Analyst Certificate - Case Study - Bellabeat
+**Phase One - ASK**
+
+1.Identify Business Task
+2. Consider key Stakeholders
+Deliverable: A clear statement of the business task. 
+
+ The business task is: Bellabeat is looking for a growth opportunity. They want to analyze user data and find insights that will be the base of the next marketing strategy.
+
+
 
