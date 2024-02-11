@@ -163,8 +163,35 @@ Key tasks
 
 I will be using R-Studio for quick data exploration and visualization, BigQuerry for data cleaning and manipulation, and finally Tableau as a secondary visualization tool.
 
-First lets start with exploring the data in R
+First lets start with exploring the data in R. 
+Loading these librares
+```R
+library(tidyverse)
+library(readr)
+library(readxl)
+```
+and now I will upload the two data set files that I will be cleaning and analyzing.
 
+```R
+activty_df <- read.csv("dailyActivity_merged.csv")
+sleep_df <- read.csv("sleepDay_merged.csv")
+```
 
+Next I will have a quick look at both files using the **head** and **str** function to get a feel of what the data set looks like. 
 
+```R
+head(activty_df)
+str(activty_df)
+head
+```
+
+Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
+![wrong date format](/assets/img/Activity1.PNG)
+![wrong date format](/assets/img/Sleep1.PNG)
+Now I will proceed to converting these columns from chr format to date format with the as.Date function.
+
+```R
+activity_df$ActivityDate = as.Date(activity_df$ActivityDate, format = "%d/%m/%Y")
+sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%d/%m/%Y")
+```
 
