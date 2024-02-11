@@ -142,17 +142,17 @@ In total there were 18 csv files. Some of the files had data in long format and 
 
 **ROCCC Analysis**
 
--**Realiablity of data - not realiable** - the data is based only on 30 users and we have no idea if these users are representative of Bellabeat customers. Also the data is gathered by different fitbit products hence we do not have an identical way of data capture, each product is tuned in a slightly different manner.
--**Originality of data - not original** - the data is third party, coming from a survey via Amazon Mechanical Turk 
--**Comprehensivness of data - highly comprehensive** - the data contains multitude of information that will help answering the business task
--**How current is the data - not current** - the data is old coming from 2026. User behavior could have changed over the years.
--**Is data cited - yes** - the data is properly cited 
+- **Realiablity of data - not realiable** - the data is based only on 30 users and we have no idea if these users are representative of Bellabeat customers. Also the data is gathered by different fitbit products hence we do not have an identical way of data capture, each product is tuned in a slightly different manner.
+- **Originality of data - not original** - the data is third party, coming from a survey via Amazon Mechanical Turk 
+- **Comprehensivness of data - highly comprehensive** - the data contains multitude of information that will help answering the business task
+- **How current is the data - not current** - the data is old coming from 2026. User behavior could have changed over the years.
+- **Is data cited - yes** - the data is properly cited 
 
 Upon further examination of the 18 data sets by looking at file names and quickly opening them in excel: 
--5 files were on a daily time frame, meaning each observation/entry was for one day. Moreover one of these files was a compilation of four daily separate data sets, which leaves us only with 2 unique data sets for daily time frame. 
--12 files were on an hour or minute or seconds time frames. Based on my experience in advertising it will be hard to come up with solid insights whcih are based on such short time frames hence I will not be using these data sets. 
--1 file contains too little data. I have pivoted the file in excel and found out that only 8 of the 30 participants had recorded data. It is too few participants to be able to draw any reliable conclusions.
--conclusion: I will be working with 2 files that are on daily time frame which are "dailyActivity_merged" and "sleepDay_merged".
+- 5 files were on a daily time frame, meaning each observation/entry was for one day. Moreover one of these files was a compilation of four daily separate data sets, which leaves us only with 2 unique data sets for daily time frame. 
+- 12 files were on an hour or minute or seconds time frames. Based on my experience in advertising it will be hard to come up with solid insights whcih are based on such short time frames hence I will not be using these data sets. 
+- 1 file contains too little data. I have pivoted the file in excel and found out that only 8 of the 30 participants had recorded data. It is too few participants to be able to draw any reliable conclusions.
+- conclusion: I will be working with 2 files that are on daily time frame which are "dailyActivity_merged" and "sleepDay_merged".
 
 Here is the screenshot of the pivot table in excel containing 8 unique ids from the pivoted file
 ![ 8 unique ids](/assets/img/weighloss_low paricipants.PNG)
