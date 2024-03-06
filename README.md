@@ -192,10 +192,15 @@ head
 Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
 ![wrong date format](/assets/img/Activity1PNG.PNG)
 ![wrong date format](/assets/img/Sleep1.PNG)
-Now I will proceed to converting these columns from chr format to date format with the as.Date function.
+Now I will proceed to converting these columns from chr format to date format and split them into weekeday. I have also removed the 12:00:00 AM time stamp from sleep dataframe as we do not need it.
 
 ```R
-activity_df$ActivityDate = as.Date(activity_df$ActivityDate, format = "%d/%m/%Y")
-sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%d/%m/%Y")
+activity_df$ActivityDate = as.Date(activity_df$ActivityDate, format="%m/%d/%Y")
+activity_df <- activity_df %>% mutate( Weekday = weekdays(ActivityDate))
+sleep_df$SleepDay <- (gsub('12:00:00 AM', '', sleep_df$SleepDay)) 
+sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%m/%d/%Y")
+sleep_df <- sleep_df %>% mutate( Weekday = weekdays(SleepDay))
 ```
+
+
 
