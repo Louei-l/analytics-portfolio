@@ -149,10 +149,10 @@ In total there were 18 csv files. Some of the files had data in long format and 
 - **Is data cited - yes** - the data is properly cited 
 
 Upon further examination of the 18 data sets by looking at file names and quickly opening them in excel: 
-- 5 files were on a daily time frame, meaning each observation/entry was for one day. Moreover one of these files was a compilation of four daily separate data sets, which leaves us only with 2 unique data sets for daily time frame. 
-- 12 files were on an hour or minute or seconds time frames. Based on my experience in advertising it will be hard to come up with solid insights whcih are based on such short time frames hence I will not be using these data sets. 
+- 5 files were on a daily time frame, meaning each observation/entry was for one day. Moreover one of these files was a compilation of four daily separate data sets, which leaves us only with 2 unique data sets for daily time frame which are activity and sleep.
+- 12 files were on an hourly time frame and one such file aligns perfectly activity, the hourly steps data completments the daily activity data.
 - 1 file contains too little data. I have pivoted the file in excel and found out that only 8 of the 30 participants had recorded data. It is too few participants to be able to draw any reliable conclusions.
-- conclusion: I will be working with 2 files that are on daily time frame which are "dailyActivity_merged" and "sleepDay_merged".
+- conclusion: I will be working with 3 files that are on daily time frame which are "dailyActivity_merged" , "sleepDay_merged", and "hourlySteps_merged"
 
 Here is the screenshot of the pivot table in excel containing 8 unique ids from the pivoted file
 ![ 8 unique ids](/assets/img/weighloss_low paricipants.PNG)
@@ -177,27 +177,33 @@ library(readxl)
 library(writexl)
 library(dplyr)
 library(lubridate)
+library(ggpubr)
 ```
 and now I will upload the two data set files that I will be cleaning and analyzing.
 
 ```R
 activty_df <- read.csv("dailyActivity_merged.csv")
 sleep_df <- read.csv("sleepDay_merged.csv")
+hr_steps_df <- read.csv("hourlySteps_merged.csv")
 ```
 
-Next I will have a quick look at both files using the **head** and **str** function to get a feel of what the data set looks like. 
+Next I will have a quick look at files using the **head** and **str** function to get a feel of what the data set looks like. 
 
 ```R
 head(activty_df)
 str(activty_df)
-head
+head(sleep_df)
+str(sleep_df)
+head(hr_steps_df)
+str(hr_steps_df)
 ```
 
-Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
+Looking at the below output we can notice that the "ActivityDate",  "SleepDay columns are in a wrong format which is "chr". Normaly it should be in date format. 
 
 ![wrong date format](/assets/img/Activity1PNG.PNG)
 
 ![wrong date format](/assets/img/Sleep1.PNG)
+![wrong date format](/assets/img/hour.PNG)
 
 
 Now I will proceed to converting these columns from chr format to date format and split them into weekeday. I have also removed the 12:00:00 AM time stamp from sleep dataframe as we do not need it.
@@ -240,3 +246,19 @@ Moving to analysis of data let's have a quick descriptive overview of the data t
 summary(merged_df[c('TotalSteps', 'VeryActiveMinutes', 'FairlyActiveMinutes', 'LightlyActiveMinutes', 'SedentaryMinutes', 'Calories', 'TotalMinutesAsleep', 'TotalTimeInBed')])
 ```
 ![descriptive_summary](/assets/img/Summary_descriptive.PNG)
+
+We find that on average a person does 8K steps a day and spends 806 minutes (13.4hr) being sedentary. On the calory side the mean is 2.3K a day while mean sleep time is 409 mins (7hr). 
+Next I would like to check if there are any outliers in the data. 
+I will double check if the sample size is n≥30 to assume that we are dealing with a normal distribution. 
+
+```R
+n_distinct(activity_df$Id)
+[1] 33
+
+n_distinct(sleep_df$Id)
+[1] 24
+```
+
+The data coming from the activity dataframe has met minimum required sample size, however the data coming from the sleep dataframe does not meet the minimum sample size of 30. With this in mind I will avoid using central limit theorem to find outliers in the sleep data and only focus on activity dataframe.
+
+
