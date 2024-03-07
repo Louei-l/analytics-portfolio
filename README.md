@@ -192,6 +192,8 @@ head
 Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
 ![wrong date format](/assets/img/Activity1PNG.PNG)
 ![wrong date format](/assets/img/Sleep1.PNG)
+
+
 Now I will proceed to converting these columns from chr format to date format and split them into weekeday. I have also removed the 12:00:00 AM time stamp from sleep dataframe as we do not need it.
 
 ```R
@@ -208,11 +210,14 @@ colSums(is.na(activity_df))
 colSums(is.na(sleep_df))
 sum(duplicated(activity_df))
 sum(duplicated(sleep_df))
-
-We foudn 3 duplicates in sleep_df, we can check what they are just to get a visual idea and to double check as well
-get_dupes(sleep_df)
-
-now we proceed to remove the 3 duplicate obervations from sleep data frame
-sleep_df <- sleep_df[!duplicated(sleep_df), ]
 ```
 
+We foudn 3 duplicates in sleep_df, we can check what they are just to get a visual idea and to double check as well
+```R
+get_dupes(sleep_df)
+```
+
+now we proceed to remove the 3 duplicate obervations from sleep data frame
+```R
+sleep_df <- sleep_df[!duplicated(sleep_df), ]
+```
