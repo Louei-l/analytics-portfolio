@@ -192,6 +192,7 @@ head
 Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
 
 ![wrong date format](/assets/img/Activity1PNG.PNG)
+
 ![wrong date format](/assets/img/Sleep1.PNG)
 
 
@@ -234,4 +235,4 @@ Moving to analysis of data let's have a quick descriptive overview of the data t
 ```R
 summary(merged_df[c('TotalSteps', 'VeryActiveMinutes', 'FairlyActiveMinutes', 'LightlyActiveMinutes', 'SedentaryMinutes', 'Calories', 'TotalMinutesAsleep', 'TotalTimeInBed')])
 ```
-
+![descriptive_summary](/assets/img/Summary_descriptive.PNG)
