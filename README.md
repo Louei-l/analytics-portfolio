@@ -198,15 +198,16 @@ head(hr_steps_df)
 str(hr_steps_df)
 ```
 
-Looking at the below output we can notice that the "ActivityDate",  "SleepDay columns are in a wrong format which is "chr". Normaly it should be in date format. 
+Looking at the below output we can notice that the "ActivityDate",  "SleepDay" and "ActivityHour" columns are in a wrong format which is "chr". Normaly it should be in date format. 
 
 ![wrong date format](/assets/img/Activity1PNG.PNG)
 
 ![wrong date format](/assets/img/Sleep1.PNG)
+
 ![wrong date format](/assets/img/hour.PNG)
 
 
-Now I will proceed to converting these columns from chr format to date format and split them into weekeday. I have also removed the 12:00:00 AM time stamp from sleep dataframe as we do not need it.
+Now I will proceed to converting these columns from chr format to date format and split them into weekeday. I have also removed the 12:00:00 AM time stamp from sleep dataframe as we do not need it. However for the hourly steps I will need the horly data so I will split the data into Date and Hour colums
 
 ```R
 activity_df$ActivityDate = as.Date(activity_df$ActivityDate, format="%m/%d/%Y")
@@ -214,6 +215,8 @@ activity_df <- activity_df %>% mutate( Weekday_Active = weekdays(ActivityDate))
 sleep_df$SleepDay <- (gsub('12:00:00 AM', '', sleep_df$SleepDay)) 
 sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%m/%d/%Y")
 sleep_df <- sleep_df %>% mutate( Weekday_Sleep = weekdays(SleepDay))
+hr_steps_df <- hr_steps_df %>% separate(ActivityHour, c("Date", "Hour"), sep = "^\\S*\\K")
+hr_steps_df$Date = as.Date(hr_steps_df$Date, format="%m/%d/%Y")
 ```
 
 Next we check for NA values and duplicates
@@ -222,6 +225,7 @@ colSums(is.na(activity_df))
 colSums(is.na(sleep_df))
 sum(duplicated(activity_df))
 sum(duplicated(sleep_df))
+sum(duplicated(hr_steps_df))
 ```
 
 We foudn 3 duplicates in sleep_df, we can check what they are just to get a visual idea and to double check as well
@@ -234,7 +238,7 @@ now we proceed to remove the 3 duplicate obervations from sleep dataframe
 sleep_df <- sleep_df[!duplicated(sleep_df), ]
 ```
 
-As a last step we will merge the two dataframes to have an easier time working on it
+As a last step we will merge the two daily dataframes to have an easier time working on it
 ```R
 merged_df <- merge(activity_df, sleep_df, by = "Id", all = TRUE)
 ```
@@ -244,21 +248,14 @@ Moving to analysis of data let's have a quick descriptive overview of the data t
 
 ```R
 summary(merged_df[c('TotalSteps', 'VeryActiveMinutes', 'FairlyActiveMinutes', 'LightlyActiveMinutes', 'SedentaryMinutes', 'Calories', 'TotalMinutesAsleep', 'TotalTimeInBed')])
+summary(hr_steps_df[c('StepTotal')])
 ```
 ![descriptive_summary](/assets/img/Summary_descriptive.PNG)
 
+![descriptive_summary](/assets/img/steps_descriptive.PNG)
+
 We find that on average a person does 8K steps a day and spends 806 minutes (13.4hr) being sedentary. On the calory side the mean is 2.3K a day while mean sleep time is 409 mins (7hr). 
-Next I would like to check if there are any outliers in the data. 
-I will double check if the sample size is n≥30 to assume that we are dealing with a normal distribution. 
 
-```R
-n_distinct(activity_df$Id)
-[1] 33
 
-n_distinct(sleep_df$Id)
-[1] 24
-```
-
-The data coming from the activity dataframe has met minimum required sample size, however the data coming from the sleep dataframe does not meet the minimum sample size of 30. With this in mind I will avoid using central limit theorem to find outliers in the sleep data and only focus on activity dataframe.
 
 
