@@ -262,7 +262,7 @@ Let's see how many steps on average happen on each week day
 ```R
 ggplot(merged_df) + geom_bar(aes(Weekday_Active, TotalSteps, ), position = "dodge", stat = "summary", fun = "mean")
 ```
-![descriptive_summary](/assets/img/avg steps day.PNG)
+![descriptive_summary](/assets/img/avg steps day.png)
 
 
 
