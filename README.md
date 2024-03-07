@@ -202,5 +202,17 @@ sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%m/%d/%Y")
 sleep_df <- sleep_df %>% mutate( Weekday = weekdays(SleepDay))
 ```
 
+Next we check for NA values and duplicates
+```R
+colSums(is.na(activity_df))
+colSums(is.na(sleep_df))
+sum(duplicated(activity_df))
+sum(duplicated(sleep_df))
 
+We foudn 3 duplicates in sleep_df, we can check what they are just to get a visual idea and to double check as well
+get_dupes(sleep_df)
+
+now we proceed to remove the 3 duplicate obervations from sleep data frame
+sleep_df <- sleep_df[!duplicated(sleep_df), ]
+```
 
