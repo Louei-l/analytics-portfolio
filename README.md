@@ -168,11 +168,15 @@ Key tasks
 I will be using R-Studio for quick data exploration and visualization, BigQuerry for data cleaning and manipulation, and finally Tableau as a secondary visualization tool.
 
 First lets start with exploring the data in R. 
-Loading these librares
+Loading librares that I will most likely use.
 ```R
+library(janitor)
 library(tidyverse)
 library(readr)
 library(readxl)
+library(writexl)
+library(dplyr)
+library(lubridate)
 ```
 and now I will upload the two data set files that I will be cleaning and analyzing.
 
