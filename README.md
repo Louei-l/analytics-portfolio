@@ -190,6 +190,7 @@ head
 ```
 
 Immediately we can see that the data in the "ActivityDate" and "SleepDay columns is in a wrong format which is "chr". Normaly it should be in date format. 
+
 ![wrong date format](/assets/img/Activity1PNG.PNG)
 ![wrong date format](/assets/img/Sleep1.PNG)
 
@@ -198,10 +199,10 @@ Now I will proceed to converting these columns from chr format to date format an
 
 ```R
 activity_df$ActivityDate = as.Date(activity_df$ActivityDate, format="%m/%d/%Y")
-activity_df <- activity_df %>% mutate( Weekday = weekdays(ActivityDate))
+activity_df <- activity_df %>% mutate( Weekday_Active = weekdays(ActivityDate))
 sleep_df$SleepDay <- (gsub('12:00:00 AM', '', sleep_df$SleepDay)) 
 sleep_df$SleepDay = as.Date(sleep_df$SleepDay, format = "%m/%d/%Y")
-sleep_df <- sleep_df %>% mutate( Weekday = weekdays(SleepDay))
+sleep_df <- sleep_df %>% mutate( Weekday_Sleep = weekdays(SleepDay))
 ```
 
 Next we check for NA values and duplicates
@@ -217,7 +218,20 @@ We foudn 3 duplicates in sleep_df, we can check what they are just to get a visu
 get_dupes(sleep_df)
 ```
 
-now we proceed to remove the 3 duplicate obervations from sleep data frame
+now we proceed to remove the 3 duplicate obervations from sleep dataframe
 ```R
 sleep_df <- sleep_df[!duplicated(sleep_df), ]
 ```
+
+As a last step we will merge the two dataframes to have an easier time working on it
+```R
+merged_df <- merge(activity_df, sleep_df, by = "Id", all = TRUE)
+```
+**Phase Four - Analysis**
+
+Moving to analysis of data let's have a quick descriptive overview of the data to find averages and any outliers
+
+```R
+summary(merged_df[c('TotalSteps', 'VeryActiveMinutes', 'FairlyActiveMinutes', 'LightlyActiveMinutes', 'SedentaryMinutes', 'Calories', 'TotalMinutesAsleep', 'TotalTimeInBed')])
+```
+
