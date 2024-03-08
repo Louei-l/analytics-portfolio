@@ -304,3 +304,5 @@ Now we will look at the hourly steps and check if certain hours of the day clock
 ggplot(hr_steps_df_order) + geom_bar(mapping = aes(x=Time_Period, y = StepTotal, fill = Time_Period, color = Time_Period), stat = "identity")
 ```
 ![descriptive_summary](/assets/img/hourly_steps.PNG)
+
+We can see that in the evening between 6-7PM the steps are the highest followed by 12-2PM time.
