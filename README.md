@@ -306,3 +306,54 @@ ggplot(hr_steps_df_order) + geom_bar(mapping = aes(x=Time_Period, y = StepTotal,
 ![descriptive_summary](/assets/img/hourly_steps.PNG)
 
 We can see that in the evening between 6-7PM the steps are the highest followed by 12-2PM time.
+
+I would like to also see how the distance affects the calorie usage of the users. 
+So lets run some test to determine if there is any relationship and if there is what is the impact. 
+Four sets of distance: Very_Active_Distance,	Moderately_Active_Distance,	Light_Active_Distance, and Sedentary_Active_Distance. I will drop the Sedentary one because it is counterintuitive for the business to promote being Sedentary. So we will work on the three remaining. 
+First lets see if there is a strong relationship between the three Distance categories and Calories (Logically there should be, but we never know). 
+
+```R
+correlation_matrix <- merged_df %>%
+  select(VeryActiveDistance,
+         ModeratelyActiveDistance, LightActiveDistance, Calories) %>%
+  cor()
+```
+![descriptive_summary](/assets/img/Correlation.PNG)
+
+We can see that there is indeed correlation between the distance and calories
+
+- Very_Active_Distance has a moderate positive correlation of 0.453
+- Moderately_Active_Distance has a weak positive correlation of 0.122
+- Light_Active_Distance has a moderate positive correlation of 0.398
+
+Now I am currious to see which of the distance categories has the biggest effect on the calories. To do this I will use the reggression analysis approach
+
+```R
+lm_model <- lm(Calories ~ LightActiveDistance + ModeratelyActiveDistance + VeryActiveDistance, data = merged_df)
+summary(lm_model)
+```
+
+Interestingtly we see a surprising result when it comes for Moderately_Active_Distance, it has a negative Estimate. This means that for every one unite increase in Moderately_Active_Distance Calorie usage decreases by 42.83. 
+To have a better understanding it ideal to have more data that shows what activities go into Moderately_Active_Distance. So for now I will play safe and drop this one. 
+
+![descriptive_summary](/assets/img/Regression.PNG)
+
+To have another more intuitive spin on the regression analysis and how the Active_Distance categories impact calorie usage we can plot a line to forecast outcome 
+
+```R
+install.packages("ggeffects")
+library(ggeffects)
+ggpredict(lm_model, terms = c("LightActiveDistance")) |> plot()
+ggpredict(lm_model, terms = c("VeryActiveDistance")) |> plot()
+```
+
+here are the two graphs, you can see the projection of both categories. It is easy to see the impact the Very_Active_Distance has on calories, a good reference poin is 10 distance units. 
+So in case of Very_Active_Distance at 10 units it corresponds to roughly 3,800 claories. If we look at Light_Active_Distance, 10 units corresponds to 3,600 calories. 
+
+![descriptive_summary](/assets/img/Light_Active.PNG)
+
+![descriptive_summary](/assets/img/Very_Active.PNG)
+
+
+**Phase Five - Recommendations**
+
