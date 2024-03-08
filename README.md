@@ -264,11 +264,43 @@ ggplot(merged_df) + geom_bar(aes(Weekday_Active, TotalSteps, ), position = "dodg
 ```
 ![descriptive_summary](/assets/img/avg_steps_day.PNG)
 
-Shifting to sleep data, I will plot the average sleep hours per week day
+Shifting to sleep data, I will plot the average sleep hours per week day. We can see that Sunday has the highest average sleep time.  
 
 ```R
 ggplot(merged_df) + geom_bar(aes(Weekday_Active, TotalSteps, ), position = "dodge", stat = "summary", fun = "mean")
 ```
 
 ![descriptive_summary](/assets/img/avg_sleep_day.PNG)
+
+Moving to next point, I will visualize the activity levels of the users. The tracker has ceveral categories of activitly level: Very Active, Fairly Active, Lightly Active, Sedentary. So this data was tracked with how many minutes are attributed to each category.
+
+```R
+activity_lvl <- merged_df %>%
+  summarize(very = sum(VeryActiveMinutes),
+            fairly = sum(FairlyActiveMinutes),
+            lightly = sum(LightlyActiveMinutes),
+            sedentary = sum(SedentaryMinutes)) %>%
+  select(very, fairly, lightly, sedentary) %>%
+  as.data.frame() %>%
+  t() %>%
+  as.data.frame() %>%
+  rownames_to_column(var = "Category") %>%
+  rename(Minutes = V1)%>%
+  mutate(Percentage = sprintf("%.2f%%", (Minutes / sum(Minutes)) * 100))
+
+Result:
+  Category  Minutes Percentage
+     very   300394      2.28%
+   fairly   216559      1.64%
+  lightly  2517370     19.11%
+sedentary 10137640     76.96%
+```
+
+It looks like users spend almost 80% of their time being sedentary and only 2.3% being very active.
+
+Now we will look at the hourly steps and check if certain hours of the day clock the most steps
+
+
+
+
 
