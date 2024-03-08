@@ -357,3 +357,14 @@ So in case of Very_Active_Distance at 10 units it corresponds to roughly 3,800 c
 
 **Phase Five - Recommendations**
 
+- 77% of time is spent being sedentary. 
+- Sunday has the lowest step count and also the highest sleep time.
+- 6:00PM-7:59PM has the most steps among all time slots
+- Very Active and Light Activite Activities that produce Distance have a significant effect on calorie burn. Among the two Very Active is the bigger one.
+
+So from these insights we can recommend some ideas for the marketing approach. 
+
+1) Tackle the sedentary issue, and provide some kind of incentive for users to be less sedentary. The could create a leaderboard on a country/region/state level and show which user was the most active and walked the biggest distance. This can create arouse a small competitive instinct among people and make them move a bit.
+2) Also the marketing team could focus higher maketing budgets on digital ads on sunday to make a bigger impact on users and gently remind them that Sundays are not to be lazy, but to be active !
+3) Encourage users to be very active as it helps burn the most calories.
+4) Create a point system of steps walked, and active minutes and allow users to use these points as discount vouchers for Belabeat products. If possible make a partnership with sport wear brands that could accept the points and give discounts on their products as well. This could potentially be a very good incentive system for people to avoid being sedentary. 
