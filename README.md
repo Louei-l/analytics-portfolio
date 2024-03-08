@@ -257,13 +257,18 @@ summary(hr_steps_df[c('StepTotal')])
 We find that on average a person does 8K steps a day and spends 806 minutes (13.4hr) being sedentary. On the calory side the mean is 2.3K a day while mean sleep time is 409 mins (7hr). 
 Also we can see that the mean for hourly steps is 320. 
 
-Let's see how many steps on average happen on each week day 
+Let's see how many steps on average happen on each week day. Sunday has the lowest number of steps while Tuesday has the highest.
 
 ```R
 ggplot(merged_df) + geom_bar(aes(Weekday_Active, TotalSteps, ), position = "dodge", stat = "summary", fun = "mean")
 ```
 ![descriptive_summary](/assets/img/avg_steps_day.PNG)
 
+Shifting to sleep data, I will plot the average sleep hours per week day
 
+```R
+ggplot(merged_df) + geom_bar(aes(Weekday_Active, TotalSteps, ), position = "dodge", stat = "summary", fun = "mean")
+```
 
+![descriptive_summary](/assets/img/avg_sleep_day.PNG)
 
