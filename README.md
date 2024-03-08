@@ -300,7 +300,7 @@ It looks like users spend almost 80% of their time being sedentary and only 2.3%
 
 Now we will look at the hourly steps and check if certain hours of the day clock the most steps
 
-
-
-
-
+```R
+ggplot(hr_steps_df_order) + geom_bar(mapping = aes(x=Time_Period, y = StepTotal, fill = Time_Period, color = Time_Period), stat = "identity")
+```
+![descriptive_summary](/assets/img/hourly_steps.PNG)
