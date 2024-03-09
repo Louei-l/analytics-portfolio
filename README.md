@@ -165,7 +165,7 @@ Key tasks
 3. Transform the data so you can work with it effectively.
 4. Document the cleaning process.
 
-I will be using R-Studio for quick data exploration and visualization, BigQuerry for data cleaning and manipulation, and finally Tableau as a secondary visualization tool.
+I will be using R-Studio for this case study to perform data cleaning, exploration, analysis and visualization.
 
 First lets start with exploring the data in R. 
 Loading librares that I will most likely use.
